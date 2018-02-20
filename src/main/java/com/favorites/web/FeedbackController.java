@@ -26,7 +26,7 @@ public class FeedbackController extends BaseController{
     @RequestMapping(value="/save",method = RequestMethod.POST)
     public Response save(Feedback feedback) {
         try {
-        feedbackService.saveFeeddback(feedback,getUserId());
+        feedbackService.saveFeedback(feedback,getUserId());
         } catch (Exception e) {
             logger.error("feedback failed, ", e);
             return result(ExceptionMsg.FAILED);

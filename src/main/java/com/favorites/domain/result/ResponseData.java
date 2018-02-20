@@ -1,5 +1,8 @@
 package com.favorites.domain.result;
 
+import lombok.Data;
+
+@Data
 public class ResponseData extends Response{
     private Object data;
 
@@ -22,14 +25,6 @@ public class ResponseData extends Response{
 
     public ResponseData(ExceptionMsg msg, Object data) {
         super(msg);
-        this.data = data;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
         this.data = data;
     }
 

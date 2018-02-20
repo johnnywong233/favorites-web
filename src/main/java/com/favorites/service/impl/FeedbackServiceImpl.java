@@ -17,7 +17,7 @@ public class FeedbackServiceImpl implements FeedbackService {
     private FeedbackRepository feedbackRepository;
 
     @Override
-    public void saveFeeddback(Feedback feedback,Long userId) {
+    public void saveFeedback(Feedback feedback,Long userId) {
         feedback.setUserId(userId == null || userId == 0L ? null : userId);
         feedback.setCreateTime(DateUtils.getCurrentTime());
         feedback.setLastModifyTime(DateUtils.getCurrentTime());

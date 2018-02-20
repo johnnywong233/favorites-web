@@ -14,7 +14,7 @@ public class Base64 {
 	 * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045 section
 	 *      6.8</a>
 	 */
-	static final int CHUNK_SIZE = 76;
+	private static final int CHUNK_SIZE = 76;
 
 	/**
 	 * Chunk separator per RFC 2045 section 2.1.
@@ -22,12 +22,12 @@ public class Base64 {
 	 * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045 section
 	 *      2.1</a>
 	 */
-	static final byte[] CHUNK_SEPARATOR = "\r\n".getBytes();
+	private static final byte[] CHUNK_SEPARATOR = "\r\n".getBytes();
 
 	/**
 	 * The base length.
 	 */
-	static final int BASELENGTH = 255;
+	private static final int BASELENGTH = 255;
 
 	/**
 	 * Lookup length.

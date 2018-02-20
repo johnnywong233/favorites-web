@@ -10,24 +10,24 @@ import java.util.Map;
 
 public interface CollectService {
 	
-	public List<CollectSummary> getCollects(String type, Long userId, Pageable pageable,Long favoritesId,Long specUserId);
+	List<CollectSummary> getCollects(String type, Long userId, Pageable pageable, Long favoritesId, Long specUserId);
 	
-	public void saveCollect(Collect collect);
+	void saveCollect(Collect collect);
 	
-	public void updateCollect(Collect newCollect);
+	void updateCollect(Collect newCollect);
 	
-	public boolean checkCollect(Collect collect);
+	boolean checkCollect(Collect collect);
 	
-	public void importHtml(Map<String, String> map,Long favoritesId,Long userId,String type);
+	void importHtml(Map<String, String> map, Long favoritesId, Long userId, String type);
 	
-	public StringBuilder exportToHtml(Long favoritesId);
+	StringBuilder exportToHtml(Long favoritesId);
 	
-	public List<CollectSummary> searchMy(Long userId,String key,Pageable pageable);
+	List<CollectSummary> searchMy(Long userId, String key, Pageable pageable);
 	
-	public List<CollectSummary> searchOther(Long userId,String key,Pageable pageable);
+	List<CollectSummary> searchOther(Long userId, String key, Pageable pageable);
 	
-	public void otherCollect(Collect collect);
+	void otherCollect(Collect collect);
 	
-	public void like(Long userId,long id);
+	void like(Long userId, long id);
 
 }

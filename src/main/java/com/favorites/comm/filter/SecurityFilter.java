@@ -20,31 +20,29 @@ import java.util.Set;
 public class SecurityFilter implements Filter {
 
 	protected Logger logger = Logger.getLogger(this.getClass());
-	private static Set<String> GreenUrlSet = new HashSet<String>();
+	private static Set<String> greenUrlSet = new HashSet<String>();
 
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		GreenUrlSet.add("/login");
-		GreenUrlSet.add("/register");
-		GreenUrlSet.add("/index");
-		GreenUrlSet.add("/forgotPassword");
-		GreenUrlSet.add("/newPassword");
-		GreenUrlSet.add("/tool");
+		greenUrlSet.add("/login");
+		greenUrlSet.add("/register");
+		greenUrlSet.add("/index");
+		greenUrlSet.add("/forgotPassword");
+		greenUrlSet.add("/newPassword");
+		greenUrlSet.add("/tool");
 	}
 
 	@Override
 	public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain filterChain)
 			throws IOException, ServletException {
-		// TODO Auto-generated method stub
 		HttpServletRequest request = (HttpServletRequest) srequest;
 		String uri = request.getRequestURI();
 		if (request.getSession().getAttribute(Const.LOGIN_SESSION_KEY) == null) {
 			Cookie[] cookies = request.getCookies();
-			if (containsSuffix(uri)  || GreenUrlSet.contains(uri) || containsKey(uri)) {
+			if (containsSuffix(uri)  || greenUrlSet.contains(uri) || containsKey(uri)) {
 				logger.debug("don't check  url , " + request.getRequestURI());
 				filterChain.doFilter(srequest, sresponse);
 				return;
@@ -59,7 +57,7 @@ public class SecurityFilter implements Filter {
 							break;
 						}
 						String value = getUserId(cookie.getValue());
-						Long userId = 0l;
+						Long userId = 0L;
 						if (userRepository == null) {
 							BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
 							userRepository = (UserRepository) factory.getBean("userRepository");

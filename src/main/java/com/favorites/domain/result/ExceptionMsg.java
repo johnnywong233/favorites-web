@@ -1,6 +1,11 @@
 
 package com.favorites.domain.result;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum ExceptionMsg {
 	SUCCESS("000000", "操作成功"),
 	FAILED("999999","操作失败"),
@@ -25,20 +30,7 @@ public enum ExceptionMsg {
     LimitPictureSize("000401","图片大小必须小于2M"),
     LimitPictureType("000402","图片格式必须为'jpg'、'png'、'jpge'、'gif'、'bmp'")
     ;
-   private ExceptionMsg(String code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
     private String code;
     private String msg;
-    
-	public String getCode() {
-		return code;
-	}
-	public String getMsg() {
-		return msg;
-	}
-
-    
 }
 

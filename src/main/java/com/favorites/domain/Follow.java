@@ -1,16 +1,10 @@
 package com.favorites.domain;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
-
 import com.favorites.domain.enums.FollowStatus;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
@@ -19,6 +13,7 @@ import com.favorites.domain.enums.FollowStatus;
  * @author DingYS
  * 
  */
+@Data
 @Entity
 public class Follow extends Entitys implements Serializable {
 
@@ -43,62 +38,4 @@ public class Follow extends Entitys implements Serializable {
 	public Follow() {
 		super();
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Long getFollowId() {
-		return followId;
-	}
-
-	public void setFollowId(Long followId) {
-		this.followId = followId;
-	}
-
-	public Long getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Long createTime) {
-		this.createTime = createTime;
-	}
-
-	public FollowStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(FollowStatus status) {
-		this.status = status;
-	}
-
-	public Long getLastModifyTime() {
-		return lastModifyTime;
-	}
-
-	public void setLastModifyTime(Long lastModifyTime) {
-		this.lastModifyTime = lastModifyTime;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
 }

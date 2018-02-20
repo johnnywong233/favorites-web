@@ -13,6 +13,7 @@ import org.webjars.WebJarAssetLocator;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@SuppressWarnings("unchecked")
 public class WebJarController {
     private final WebJarAssetLocator assetLocator = new WebJarAssetLocator();
 

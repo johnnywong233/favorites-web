@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 
     protected Logger logger = Logger.getLogger(this.getClass());
 
-    public static final String DEFAULT_ERROR_VIEW = "error";
+    private static final String DEFAULT_ERROR_VIEW = "error";
 
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(Exception e, HttpServletRequest request) throws Exception {

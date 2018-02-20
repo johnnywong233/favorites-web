@@ -157,7 +157,7 @@ public class CollectController extends BaseController{
 			@PathVariable("category") String category) {
 		  Sort sort = new Sort(Direction.DESC, "id");
 	    Pageable pageable = new PageRequest(page, size, sort);
-	    List<CollectSummary> collects = null;
+	    List<CollectSummary> collects;
 	    if("otherpublic".equalsIgnoreCase(type)){
 	    	if(null != favoritesId && 0 != favoritesId){
 	    		collects = collectService.getCollects(type, userId, pageable, favoritesId,getUserId());
@@ -195,7 +195,7 @@ public class CollectController extends BaseController{
 			,@PathVariable("category") String category) {
 		Sort sort = new Sort(Direction.DESC, "id");
 	    Pageable pageable = new PageRequest(page, size, sort);
-	    List<CollectSummary> collects = null;
+	    List<CollectSummary> collects;
 	    if("otherpublic".equalsIgnoreCase(type)){
 	    	if(null != favoritesId && 0 != favoritesId){
 	    		collects = collectService.getCollects(type, userId, pageable, favoritesId,getUserId());
@@ -274,8 +274,7 @@ public class CollectController extends BaseController{
 	 */
 	@RequestMapping(value="/detail/{id}")
 	public Collect detail(@PathVariable("id") long id) {
-		Collect collect=collectRepository.findOne(id);
-		return collect;
+		return collectRepository.findOne(id);
 	}
 	
 

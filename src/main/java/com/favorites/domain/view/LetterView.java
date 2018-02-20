@@ -1,7 +1,5 @@
 package com.favorites.domain.view;
 
-import com.favorites.domain.enums.LetterType;
-
 /**
  * Created by DingYS on 2017/3/8.
  */

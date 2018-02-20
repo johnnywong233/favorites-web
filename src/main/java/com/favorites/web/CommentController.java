@@ -1,15 +1,5 @@
 package com.favorites.web;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.favorites.domain.Collect;
 import com.favorites.domain.Comment;
 import com.favorites.domain.User;
@@ -20,6 +10,14 @@ import com.favorites.repository.UserRepository;
 import com.favorites.service.NoticeService;
 import com.favorites.utils.DateUtils;
 import com.favorites.utils.StringUtil;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("/comment")
@@ -44,7 +42,7 @@ public class CommentController extends BaseController{
 	@RequestMapping(value="/add")
 	public Response add(Comment comment) {
 		User user = null;
-		if (comment.getContent().indexOf("@") > -1) {
+		if (comment.getContent().contains("@")) {
 			List<String> atUsers = StringUtil.getAtUser(comment.getContent());
 			if(atUsers!=null && atUsers.size()>0){
 				user = userRepository.findByUserName(atUsers.get(0));

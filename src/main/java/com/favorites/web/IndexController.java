@@ -135,7 +135,7 @@ public class IndexController extends BaseController{
 		model.addAttribute("category", category);
 		model.addAttribute("type", "lookAround");
 		Favorites favorites = new Favorites();
-		List<CollectSummary> collects = null;
+		List<CollectSummary> collects;
 		List<CollectSummary> fivecollects = lookAroundService.scrollFiveCollect();
 		List<UserIsFollow> fiveUsers = lookAroundService.queryFiveUser(this.getUserId());
 
@@ -274,10 +274,10 @@ public class IndexController extends BaseController{
     public String collectorPageShow(Model model, @PathVariable("userId") Long userId, @PathVariable("favoritesId") Long favoritesId, @RequestParam(value = "page", defaultValue = "0") Integer page,
                                  @RequestParam(value = "size", defaultValue = "15") Integer size){
         User user = userRepository.findOne(userId);
-        Long collectCount = 0l;
+        Long collectCount;
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(page, size, sort);
-        List<CollectSummary> collects = null;
+        List<CollectSummary> collects;
         Integer isFollow = 0;
         if(getUserId().longValue() == userId.longValue()){
             model.addAttribute("myself",IsDelete.YES.toString());

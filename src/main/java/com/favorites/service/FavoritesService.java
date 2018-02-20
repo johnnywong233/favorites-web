@@ -4,6 +4,6 @@ import com.favorites.domain.Favorites;
 
 public interface FavoritesService {
 	
-	public Favorites saveFavorites(Long userId,Long count,String name);
+	Favorites saveFavorites(Long userId, Long count, String name);
 
 }
